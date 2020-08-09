@@ -15,18 +15,18 @@ public class Pokemon {
 
     private String categoria;
 
-    private String habilidade;
+    private String habilidades;
 
     private Double peso;
 
     public Pokemon() {
     }
 
-    public Pokemon(String id, String nome, String categoria, String habilidade, Double peso) {
+    public Pokemon(String id, String nome, String categoria, String habilidades, Double peso) {
         this.id = id;
         this.nome = nome;
         this.categoria = categoria;
-        this.habilidade = habilidade;
+        this.habilidades = habilidades;
         this.peso = peso;
     }
 
@@ -54,12 +54,12 @@ public class Pokemon {
         this.categoria = categoria;
     }
 
-    public String getHabilidade() {
-        return habilidade;
+    public String getHabilidades() {
+        return habilidades;
     }
 
-    public void setHabilidade(String habilidade) {
-        this.habilidade = habilidade;
+    public void setHabilidades(String habilidades) {
+        this.habilidades = habilidades;
     }
 
     public Double getPeso() {
@@ -89,7 +89,7 @@ public class Pokemon {
                 "id='" + id + '\'' +
                 ", nome='" + nome + '\'' +
                 ", categoria='" + categoria + '\'' +
-                ", habilidade='" + habilidade + '\'' +
+                ", habilidade='" + habilidades + '\'' +
                 ", peso=" + peso +
                 '}';
     }
