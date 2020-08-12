@@ -1,12 +1,16 @@
 package br.com.joseaugustodemelo.pokedex.controller;
 
 import br.com.joseaugustodemelo.pokedex.models.Pokemon;
+import br.com.joseaugustodemelo.pokedex.models.PokemonEvent;
 import br.com.joseaugustodemelo.pokedex.repository.PokemonRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.time.Duration;
 
 @RestController
 @RequestMapping("/v1")
@@ -63,5 +67,11 @@ public class PokemonController {
     @DeleteMapping
     public Mono<Void> deleteAllPokemons() {
         return pokemonRepository.deleteAll();
+    }
+
+    @GetMapping(value = "/events", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<PokemonEvent> getPokemonEvents(){
+        return Flux.interval(Duration.ofSeconds(5))
+                .map(val -> new PokemonEvent(val, "Evento de Pokemon"));
     }
 }
